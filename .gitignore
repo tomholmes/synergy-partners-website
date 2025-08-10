@@ -1,0 +1,19 @@
+node_modules
+
+# Environment and configuration files
+.env
+.env.local
+.env.production
+config.env
+public/config.env
+public/sendgrid-config.php
+
+# Log files
+*.log
+public/*.log
+
+# Rate limiting and security files
+public/rate-limit.json
+public/blocked-ips.json
+public/security.log
+public/leads.log
