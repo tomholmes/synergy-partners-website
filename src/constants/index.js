@@ -25,7 +25,8 @@ export const ROUTES = {
   FINANCIAL_SERVICES: '/industries/financial-services',
   HEALTHCARE: '/industries/healthcare',
   PUBLIC_SECTOR: '/industries/public-sector',
-  ENERGY_UTILITIES: '/industries/energy-utilities'
+  ENERGY_UTILITIES: '/industries/energy-utilities',
+  RETAIL_ECOMMERCE: '/industries/retail-ecommerce'
 }
 
 // Module information
