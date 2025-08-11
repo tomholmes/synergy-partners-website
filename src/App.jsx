@@ -25,6 +25,7 @@ import {
   Zap as Lightning,
   ShoppingBag
 } from 'lucide-react'
+import aiGovernanceIcon from './assets/ai_governance_icon.png'
 
 
 

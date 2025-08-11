@@ -8,6 +8,7 @@ import Header from './Header'
 import { APP_CONFIG, ROUTES, MODULES, INDUSTRY_ROUTES } from '../constants'
 import SEO from './SEO'
 import EmailCapturePhp from './EmailCapturePhp'
+import aiGovernanceIcon from '../assets/ai_governance_icon.png'
 
 function ModulePage({ 
   moduleData, 
