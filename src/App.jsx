@@ -323,25 +323,37 @@ function App() {
                   animate="animate"
                 >
                   <motion.span 
-                    variants={textRevealVariants}
+                    variants={{
+                      initial: { opacity: 0, y: 20 },
+                      animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+                    }}
                     className="inline-block mr-2 text-foreground font-semibold"
                   >
                     From{' '}
                   </motion.span>
                   <motion.span 
-                    variants={textRevealVariants}
+                    variants={{
+                      initial: { opacity: 0, y: 20 },
+                      animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+                    }}
                     className="inline-block mr-2"
                   >
                     <span className="text-gradient-enhanced">AI Curious</span>
                   </motion.span>
                   <motion.span 
-                    variants={textRevealVariants}
+                    variants={{
+                      initial: { opacity: 0, y: 20 },
+                      animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+                    }}
                     className="inline-block mr-2 text-foreground font-semibold"
                   >
                     to{' '}
                   </motion.span>
                   <motion.span 
-                    variants={textRevealVariants}
+                    variants={{
+                      initial: { opacity: 0, y: 20 },
+                      animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+                    }}
                     className="inline-block mr-2"
                   >
                     <span className="text-gradient-enhanced">AI Confident</span>
