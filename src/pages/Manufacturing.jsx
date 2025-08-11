@@ -29,8 +29,7 @@ import {
   Wrench,
   Gauge,
   Truck,
-  Leaf,
-  Quote
+  Leaf
 } from 'lucide-react'
 import { APP_CONFIG, ROUTES } from '../constants'
 import manufacturingHero from '../assets/industries/manufacturing-hero.svg'

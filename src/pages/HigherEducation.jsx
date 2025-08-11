@@ -25,8 +25,7 @@ import {
   Eye,
   Lock,
   FileText,
-  PieChart,
-  Quote
+  PieChart
 } from 'lucide-react'
 import { APP_CONFIG, ROUTES } from '../constants'
 import higherEducationHero from '../assets/industries/higher-education-hero.svg'
