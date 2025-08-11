@@ -905,10 +905,7 @@ function App() {
             </motion.div>
 
             <motion.div 
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 space-modern-lg benefits-grid"
-              style={{
-                gridTemplateRows: 'repeat(2, 1fr)'
-              }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 benefits-grid"
               variants={staggerContainer}
               initial="initial"
               whileInView="animate"
@@ -922,7 +919,7 @@ function App() {
                 >
                   <Card className="h-full hover:shadow-lg transition-all duration-300 hover:scale-[1.02] border-0 bg-card/50 backdrop-blur-sm card">
                     <CardContent className="p-6 h-full flex flex-col justify-between card-content">
-                      <div className="flex items-start space-x-4">
+                      <div className="flex items-start gap-4">
                         <div className="p-3 bg-accent/10 rounded-lg text-accent flex-shrink-0">
                           {benefit.icon}
                         </div>
