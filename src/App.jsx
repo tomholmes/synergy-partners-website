@@ -107,7 +107,7 @@ function App() {
     {
       icon: <Target className="h-6 w-6" />,
       title: "Tailored Implementation Guidance", 
-      description: "Customized roadmaps for your specific industry and use cases"
+      description: "Customized roadmaps for your industry and use cases"
     },
     {
       icon: <Shield className="h-6 w-6" />,
@@ -122,7 +122,7 @@ function App() {
     {
       icon: <Globe className="h-6 w-6" />,
       title: "Microsoft Integration",
-      description: "Built for the Microsoft ecosystem with Azure OpenAI support"
+      description: "Built for the Microsoft ecosystem with Azure OpenAI"
     },
     {
       icon: <Award className="h-6 w-6" />,
@@ -917,15 +917,15 @@ function App() {
                   variants={staggerItem}
                   className="h-full"
                 >
-                  <Card className="h-full hover:shadow-lg transition-all duration-300 hover:scale-[1.02] border-0 bg-card/50 backdrop-blur-sm">
-                    <CardContent className="p-6 h-full flex flex-col">
-                      <div className="flex items-start space-x-4 mb-4">
+                  <Card className="h-full min-h-[160px] hover:shadow-lg transition-all duration-300 hover:scale-[1.02] border-0 bg-card/50 backdrop-blur-sm">
+                    <CardContent className="p-6 h-full flex flex-col justify-between">
+                      <div className="flex items-start space-x-4">
                         <div className="p-3 bg-accent/10 rounded-lg text-accent flex-shrink-0">
                           {benefit.icon}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h3 className="text-lg font-semibold text-foreground mb-2 leading-tight">{benefit.title}</h3>
-                          <p className="text-muted-foreground text-sm leading-relaxed">{benefit.description}</p>
+                          <h3 className="text-lg font-semibold text-foreground mb-3 leading-tight">{benefit.title}</h3>
+                          <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">{benefit.description}</p>
                         </div>
                       </div>
                     </CardContent>
