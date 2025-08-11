@@ -316,37 +316,24 @@ function App() {
                   </Badge>
                 </motion.div>
                 
-                <motion.h1 
-                  className="text-hero-enhanced font-bold text-foreground mb-8 leading-tight"
-                  variants={staggerTextReveal}
-                  initial="initial"
-                  animate="animate"
-                >
-                  <motion.span 
-                    variants={textRevealVariants}
+                <h1 className="text-hero-enhanced font-bold text-foreground mb-8 leading-tight">
+                  <span 
                     style={{ color: 'red', fontWeight: 'bold', fontSize: '1.5rem', display: 'inline-block', marginRight: '0.5rem' }}
                   >
                     From{' '}
-                  </motion.span>
-                  <motion.span 
-                    variants={textRevealVariants}
-                    className="inline-block mr-2"
-                  >
+                  </span>
+                  <span className="inline-block mr-2">
                     <span className="text-gradient-enhanced">AI Curious</span>
-                  </motion.span>
-                  <motion.span 
-                    variants={textRevealVariants}
+                  </span>
+                  <span 
                     style={{ color: 'red', fontWeight: 'bold', fontSize: '1.5rem', display: 'inline-block', marginRight: '0.5rem' }}
                   >
                     to{' '}
-                  </motion.span>
-                  <motion.span 
-                    variants={textRevealVariants}
-                    className="inline-block mr-2"
-                  >
+                  </span>
+                  <span className="inline-block mr-2">
                     <span className="text-gradient-enhanced">AI Confident</span>
-                  </motion.span>
-                </motion.h1>
+                  </span>
+                </h1>
                 
                 <motion.p 
                   className="text-xl text-muted-foreground mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0"
