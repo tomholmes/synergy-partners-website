@@ -1,6 +1,6 @@
 import ModulePage from '../components/ModulePage'
 import { Shield, Lock, FileCheck, AlertTriangle, Users, BarChart3, Settings, Eye } from 'lucide-react'
-import heroImage from '../assets/trustiq_dashboard.png'
+import heroImage from '../assets/trustIQ_dashboard.png'
 
 function TrustIQ() {
   const moduleData = {
