@@ -7,7 +7,6 @@ node_modules
 config.env
 public/config.env
 public/sendgrid-config.php
-deploy.env
 
 # Build artifacts
 dist/
