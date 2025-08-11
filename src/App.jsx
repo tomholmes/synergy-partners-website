@@ -316,24 +316,37 @@ function App() {
                   </Badge>
                 </motion.div>
                 
-                <h1 className="text-hero-enhanced font-bold text-foreground mb-8 leading-tight">
-                  <span 
-                    style={{ color: 'red', fontWeight: 'bold', fontSize: '1.5rem', display: 'inline-block', marginRight: '0.5rem' }}
+                <motion.h1 
+                  className="text-hero-enhanced font-bold text-foreground mb-8 leading-tight"
+                  variants={staggerTextReveal}
+                  initial="initial"
+                  animate="animate"
+                >
+                  <motion.span 
+                    variants={textRevealVariants}
+                    className="inline-block mr-2 text-foreground font-semibold"
                   >
                     From{' '}
-                  </span>
-                  <span className="inline-block mr-2">
+                  </motion.span>
+                  <motion.span 
+                    variants={textRevealVariants}
+                    className="inline-block mr-2"
+                  >
                     <span className="text-gradient-enhanced">AI Curious</span>
-                  </span>
-                  <span 
-                    style={{ color: 'red', fontWeight: 'bold', fontSize: '1.5rem', display: 'inline-block', marginRight: '0.5rem' }}
+                  </motion.span>
+                  <motion.span 
+                    variants={textRevealVariants}
+                    className="inline-block mr-2 text-foreground font-semibold"
                   >
                     to{' '}
-                  </span>
-                  <span className="inline-block mr-2">
+                  </motion.span>
+                  <motion.span 
+                    variants={textRevealVariants}
+                    className="inline-block mr-2"
+                  >
                     <span className="text-gradient-enhanced">AI Confident</span>
-                  </span>
-                </h1>
+                  </motion.span>
+                </motion.h1>
                 
                 <motion.p 
                   className="text-xl text-muted-foreground mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0"
