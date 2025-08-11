@@ -7,6 +7,7 @@ import PropTypes from 'prop-types'
 import aiGovernanceIcon from '../assets/ai_governance_icon.png'
 import { APP_CONFIG, ROUTES, MODULES } from '../constants'
 import SEO from './SEO'
+import EmailCapturePhp from './EmailCapturePhp'
 
 function ModulePage({ 
   moduleData, 
@@ -42,8 +43,13 @@ function ModulePage({
               <Link to="/resources" className="text-muted-foreground hover:text-foreground transition-colors">Resources</Link>
               <Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors">About</Link>
               <Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</Link>
-              <Button size="sm">Start Assessment</Button>
-              <Button variant="outline" size="sm">Book Demo</Button>
+              <Button 
+                variant="outline" 
+                size="sm"
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Book Demo
+              </Button>
             </div>
           </div>
         </div>
@@ -75,11 +81,12 @@ function ModulePage({
                 {moduleData.description}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="text-lg px-8">
-                  Start Free Trial
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button variant="outline" size="lg" className="text-lg px-8">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="text-lg px-8"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                >
                   Schedule Demo
                 </Button>
               </div>
@@ -230,16 +237,37 @@ function ModulePage({
             Ready to Get Started with {moduleData.name}?
           </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-            Experience the power of {moduleData.name} with a free trial or schedule a personalized demo.
+            Experience the power of {moduleData.name} with a personalized demo.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="text-lg px-8">
-              Start Free Trial
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="text-lg px-8 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               Schedule Demo
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 bg-muted/30">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+            Schedule Your {moduleData.name} Demo
+          </h2>
+          <p className="text-xl mb-8 text-muted-foreground">
+            Get a personalized walkthrough of how {moduleData.name} can transform your organization.
+          </p>
+          
+          <EmailCapturePhp source={`${moduleData.name.toLowerCase()}-page`} />
+          
+          <div className="mt-8 text-center">
+            <p className="text-sm text-muted-foreground">
+              After submitting your information, we'll automatically send you a confirmation email and schedule your demo.
+            </p>
           </div>
         </div>
       </section>
