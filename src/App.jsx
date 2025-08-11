@@ -7,6 +7,7 @@ import { Textarea } from './components/ui/textarea'
 import { Link } from 'react-router-dom'
 import EmailCapturePhp from './components/EmailCapturePhp'
 import SEO from './components/SEO'
+import DashboardCarousel from './components/DashboardCarousel'
 import { motion } from 'framer-motion'
 import { 
   ArrowRight, 
@@ -26,7 +27,7 @@ import {
   ShoppingBag
 } from 'lucide-react'
 import { useState } from 'react'
-import heroDashboard from './assets/hero_dashboard.png'
+
 
 import aiGovernanceIcon from './assets/ai_governance_icon.png'
 import { APP_CONFIG, ROUTES, MODULES } from './constants'
@@ -397,7 +398,7 @@ function App() {
                 </motion.div>
               </motion.div>
               
-              {/* Image - Right Side */}
+              {/* Dashboard Carousel - Right Side */}
               <motion.div 
                 className="relative"
                 variants={heroImageEnhancedVariants}
@@ -407,11 +408,7 @@ function App() {
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <motion.img 
-                    src={heroDashboard} 
-                    alt="SynergyIQ Platform Dashboard showing AI governance metrics, KPIs, and transformation roadmaps"
-                    className="w-full h-auto rounded-2xl shadow-strong relative z-10"
-                  />
+                  <DashboardCarousel />
                   
                   {/* Enhanced floating elements */}
                   <motion.div 
