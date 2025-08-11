@@ -3,6 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from './ui/button'
 
+// Import dashboard images
+import heroDashboard from '../assets/hero_dashboard.png'
+import insightDashboard from '../assets/insightIQ_dashboard.png'
+import trustDashboard from '../assets/trustIQ_dashboard.png'
+import actionDashboard from '../assets/actioniq_dashboard.png'
+import planDashboard from '../assets/planiq_dashboard.png'
+
 const DashboardCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
@@ -10,31 +17,31 @@ const DashboardCarousel = () => {
   const dashboards = [
     {
       id: 'hero',
-      image: '/src/assets/hero_dashboard.png',
+      image: heroDashboard,
       alt: 'SynergyIQ Platform Dashboard showing AI governance metrics, KPIs, and transformation roadmaps',
       title: 'SynergyIQ Platform'
     },
     {
       id: 'insight',
-      image: '/src/assets/insightIQ_dashboard.png',
+      image: insightDashboard,
       alt: 'InsightIQ Dashboard - AI Maturity Assessment & Benchmarking',
       title: 'InsightIQ Dashboard'
     },
     {
       id: 'trust',
-      image: '/src/assets/trustIQ_dashboard.png',
+      image: trustDashboard,
       alt: 'TrustIQ Dashboard - AI Governance & Risk Management',
       title: 'TrustIQ Dashboard'
     },
     {
       id: 'action',
-      image: '/src/assets/actioniq_dashboard.png',
+      image: actionDashboard,
       alt: 'ActionIQ Dashboard - AI Transformation Roadmaps',
       title: 'ActionIQ Dashboard'
     },
     {
       id: 'plan',
-      image: '/src/assets/planiq_dashboard.png',
+      image: planDashboard,
       alt: 'PlanIQ Dashboard - KPIs, Milestones & Tracking',
       title: 'PlanIQ Dashboard'
     }
