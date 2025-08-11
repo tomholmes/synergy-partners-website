@@ -1,6 +1,6 @@
 import ModulePage from '../components/ModulePage'
 import { BarChart3, Brain, Database, TrendingUp, Users, Shield, Target, Zap } from 'lucide-react'
-import heroImage from '../assets/insightiq_dashboard.png'
+import heroImage from '../assets/insightIQ_dashboard.png'
 
 function InsightIQ() {
   const moduleData = {
