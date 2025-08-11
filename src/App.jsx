@@ -127,7 +127,7 @@ function App() {
     {
       icon: <Award className="h-6 w-6" />,
       title: "Federal Compliance Ready",
-      description: "SOC2-ready with role-based access and full data control"
+      description: "SOC2-ready with role-based access and data control"
     }
   ]
 
@@ -905,7 +905,7 @@ function App() {
             </motion.div>
 
             <motion.div 
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 space-modern-lg"
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 space-modern-lg benefits-grid"
               variants={staggerContainer}
               initial="initial"
               whileInView="animate"
@@ -917,7 +917,7 @@ function App() {
                   variants={staggerItem}
                   className="h-full"
                 >
-                  <Card className="h-full min-h-[160px] hover:shadow-lg transition-all duration-300 hover:scale-[1.02] border-0 bg-card/50 backdrop-blur-sm">
+                  <Card className="h-full min-h-[180px] hover:shadow-lg transition-all duration-300 hover:scale-[1.02] border-0 bg-card/50 backdrop-blur-sm">
                     <CardContent className="p-6 h-full flex flex-col justify-between">
                       <div className="flex items-start space-x-4">
                         <div className="p-3 bg-accent/10 rounded-lg text-accent flex-shrink-0">

@@ -1046,3 +1046,12 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* Force consistent card heights in benefits grid */
+.benefits-grid {
+  align-items: stretch;
+}
+
+.benefits-grid > * {
+  height: 100%;
+}
