@@ -915,16 +915,21 @@ function App() {
                 <motion.div 
                   key={index}
                   variants={staggerItem}
+                  className="h-full"
                 >
-                  <div className="flex items-start space-x-4 p-6 rounded-lg hover:bg-muted/50 transition-colors">
-                    <div className="p-2 bg-accent/10 rounded-lg text-accent flex-shrink-0">
-                      {benefit.icon}
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-foreground mb-2">{benefit.title}</h3>
-                      <p className="text-muted-foreground">{benefit.description}</p>
-                    </div>
-                  </div>
+                  <Card className="h-full hover:shadow-lg transition-all duration-300 hover:scale-[1.02] border-0 bg-card/50 backdrop-blur-sm">
+                    <CardContent className="p-6 h-full flex flex-col">
+                      <div className="flex items-start space-x-4 mb-4">
+                        <div className="p-3 bg-accent/10 rounded-lg text-accent flex-shrink-0">
+                          {benefit.icon}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h3 className="text-lg font-semibold text-foreground mb-2 leading-tight">{benefit.title}</h3>
+                          <p className="text-muted-foreground text-sm leading-relaxed">{benefit.description}</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </motion.div>
               ))}
             </motion.div>
