@@ -23,7 +23,8 @@ import {
   Building2,
   Sparkles,
   Star,
-  Zap as Lightning
+  Zap as Lightning,
+  ShoppingBag
 } from 'lucide-react'
 import { useState } from 'react'
 import heroDashboard from './assets/hero_dashboard.png'
@@ -323,7 +324,7 @@ function App() {
                 >
                   <motion.span 
                     variants={textRevealVariants}
-                    className="inline-block mr-2"
+                    className="inline-block mr-2 text-muted-foreground font-medium"
                   >
                     From{' '}
                   </motion.span>
@@ -335,7 +336,7 @@ function App() {
                   </motion.span>
                   <motion.span 
                     variants={textRevealVariants}
-                    className="inline-block mr-2"
+                    className="inline-block mr-2 text-muted-foreground font-medium"
                   >
                     to{' '}
                   </motion.span>
@@ -822,6 +823,44 @@ function App() {
                           transition={{ delay: 0.1 }}
                         >
                           Accelerate responsible AI adoption in energy & utilities with safety compliance, predictive maintenance, and operational efficiency.
+                        </motion.p>
+                      </div>
+                    </div>
+                  </motion.div>
+                </Link>
+              </motion.div>
+
+              <motion.div variants={staggerEnhancedItem}>
+                <Link to={ROUTES.RETAIL_ECOMMERCE} className="block">
+                  <motion.div
+                    className="card-modern-enhanced p-8 group cursor-pointer h-full shadow-soft hover:shadow-strong flex flex-col"
+                    variants={cardEnhancedVariants}
+                    whileHover="hover"
+                    whileTap="tap"
+                  >
+                    <div className="flex items-start space-x-3 mb-6">
+                      <motion.div 
+                        className="flex-shrink-0 p-3 bg-primary/10 rounded-xl text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300"
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                      >
+                        <ShoppingBag className="h-8 w-8" />
+                      </motion.div>
+                      <div className="flex-1 min-w-0">
+                        <Badge variant="secondary" className="badge-modern-enhanced mb-2">Retail & E-commerce</Badge>
+                        
+                        <motion.h3 
+                          className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors leading-tight"
+                          variants={textRevealVariants}
+                        >
+                          Retail & E-commerce
+                        </motion.h3>
+                        
+                        <motion.p 
+                          className="text-muted-foreground leading-relaxed text-sm"
+                          variants={textRevealVariants}
+                          transition={{ delay: 0.1 }}
+                        >
+                          Accelerate responsible AI adoption in retail & e-commerce with customer personalization, supply chain optimization, and privacy compliance.
                         </motion.p>
                       </div>
                     </div>
