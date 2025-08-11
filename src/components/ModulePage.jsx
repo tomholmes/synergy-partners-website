@@ -38,11 +38,24 @@ function ModulePage({
             
             <div className="flex items-center space-x-8">
               <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">Home</Link>
-              <Link to="/platform" className="text-muted-foreground hover:text-foreground transition-colors">Platform</Link>
-              <Link to="/solutions" className="text-muted-foreground hover:text-foreground transition-colors">Solutions</Link>
-              <Link to="/resources" className="text-muted-foreground hover:text-foreground transition-colors">Resources</Link>
-              <Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors">About</Link>
-              <Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</Link>
+              <a 
+                href="/#platform" 
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Platform
+              </a>
+              <a 
+                href="/#solutions" 
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Solutions
+              </a>
+              <a 
+                href="/#contact" 
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Contact
+              </a>
               <Button 
                 variant="outline" 
                 size="sm"
