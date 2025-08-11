@@ -9,7 +9,6 @@ import EmailCapturePhp from './components/EmailCapturePhp'
 import SEO from './components/SEO'
 import { motion } from 'framer-motion'
 import { 
-  CheckCircle, 
   ArrowRight, 
   Zap,
   Target,
@@ -28,7 +27,7 @@ import {
 } from 'lucide-react'
 import { useState } from 'react'
 import heroDashboard from './assets/hero_dashboard.png'
-import aiBusinessTeam from './assets/ai_business_team.png'
+
 import aiGovernanceIcon from './assets/ai_governance_icon.png'
 import { APP_CONFIG, ROUTES, MODULES } from './constants'
 import { 
@@ -936,64 +935,7 @@ function App() {
           </div>
         </motion.section>
 
-        {/* Trust Indicators */}
-        <motion.section 
-          className="py-24 relative overflow-hidden"
-          initial="initial"
-          whileInView="whileInView"
-          viewport={{ once: true }}
-          variants={scrollVariants}
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div 
-              className="text-center mb-20"
-              variants={staggerItem}
-            >
-              <h2 className="text-display font-bold text-foreground mb-8">
-                Trusted by Leading Organizations
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                Helping enterprises across industries achieve AI confidence
-              </p>
-            </motion.div>
-            
-            <motion.div 
-              className="grid md:grid-cols-2 gap-8 items-center space-modern-lg"
-              variants={staggerContainer}
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-            >
-              <motion.div variants={staggerItem}>
-                <img 
-                  src={aiBusinessTeam} 
-                  alt="Professional AI Strategy Team collaborating on enterprise AI transformation and governance" 
-                  className="w-full h-auto rounded-lg shadow-lg"
-                />
-              </motion.div>
-              <motion.div variants={staggerItem}>
-                <div className="space-y-6">
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-6 w-6 text-green-600" />
-                    <span className="text-lg">SOC2-Ready Security & Compliance</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-6 w-6 text-green-600" />
-                    <span className="text-lg">Microsoft Ecosystem Integration</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-6 w-6 text-green-600" />
-                    <span className="text-lg">Federal & Enterprise Ready</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-6 w-6 text-green-600" />
-                    <span className="text-lg">NIST AI RMF Aligned</span>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-          </div>
-        </motion.section>
+
 
         {/* CTA Section */}
         <motion.section 
