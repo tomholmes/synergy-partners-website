@@ -23,6 +23,7 @@ import {
 import EmailCapturePhp from '../components/EmailCapturePhp'
 import SEO from '../components/SEO'
 import Header from '../components/Header'
+import enterpriseHero from '../assets/industries/enterprise-hero.svg'
 
 export default function Enterprise() {
   // Problem → Outcome data
@@ -254,19 +255,28 @@ export default function Enterprise() {
         {/* Hero Section */}
         <section className="py-20 lg:py-32 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <Badge className="mb-4">Enterprise AI Platform</Badge>
-              <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6">
-                Accelerate Responsible AI Across the <span className="text-primary">Enterprise</span>
-              </h1>
-              <p className="text-xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
-                SynergyIQ enables organizations to baseline AI maturity, strengthen governance and compliance, and execute cross-departmental roadmaps—turning siloed pilots into coordinated, measurable transformation.
-              </p>
-              <div className="flex justify-center">
-                <Button size="lg" className="text-lg px-8" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-                  Book a Demo
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="text-center lg:text-left">
+                <Badge className="mb-4">Enterprise AI Platform</Badge>
+                <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6">
+                  Accelerate Responsible AI Across the <span className="text-primary">Enterprise</span>
+                </h1>
+                <p className="text-xl text-muted-foreground mb-8 max-w-4xl lg:max-w-none leading-relaxed">
+                  SynergyIQ enables organizations to baseline AI maturity, strengthen governance and compliance, and execute cross-departmental roadmaps—turning siloed pilots into coordinated, measurable transformation.
+                </p>
+                <div className="flex justify-center lg:justify-start">
+                  <Button size="lg" className="text-lg px-8" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                    Book a Demo
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </div>
+              </div>
+              <div className="relative order-first lg:order-last">
+                <img 
+                  src={enterpriseHero} 
+                  alt="Enterprise AI Transformation"
+                  className="w-full h-auto rounded-lg shadow-2xl"
+                />
               </div>
             </div>
           </div>

@@ -15,6 +15,7 @@ import {
   TrendingUp, 
   Building2,
   Users,
+  Globe,
   Zap,
   CheckCircle,
   Quote,
@@ -25,6 +26,7 @@ import {
 import EmailCapturePhp from '../components/EmailCapturePhp'
 import SEO from '../components/SEO'
 import Header from '../components/Header'
+import energyUtilitiesHero from '../assets/industries/energy-utilities-hero.svg'
 
 export default function EnergyUtilities() {
   // Problem → Outcome data
@@ -234,19 +236,28 @@ export default function EnergyUtilities() {
         {/* Hero Section */}
         <section className="py-20 lg:py-32 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <Badge className="mb-4">Energy & Utilities AI Platform</Badge>
-              <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6">
-                Accelerate Responsible AI in <span className="text-primary">Energy & Utilities</span>
-              </h1>
-              <p className="text-xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
-                SynergyIQ helps energy providers and utilities baseline AI maturity, align with safety and regulatory frameworks, and execute roadmaps that deliver reliable, efficient, and sustainable operations.
-              </p>
-              <div className="flex justify-center">
-                <Button size="lg" className="text-lg px-8" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-                  Book a Demo
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="text-center lg:text-left">
+                <Badge className="mb-4">Energy & Utilities AI Platform</Badge>
+                <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6">
+                  Accelerate Responsible AI in <span className="text-primary">Energy & Utilities</span>
+                </h1>
+                <p className="text-xl text-muted-foreground mb-8 max-w-4xl lg:max-w-none leading-relaxed">
+                  SynergyIQ helps energy and utility organizations baseline AI maturity, align with safety and regulatory requirements, and execute roadmaps that turn pilots into safe, compliant, and measurable outcomes.
+                </p>
+                <div className="flex justify-center lg:justify-start">
+                  <Button size="lg" className="text-lg px-8" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                    Book a Demo
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </div>
+              </div>
+              <div className="relative order-first lg:order-last">
+                <img 
+                  src={energyUtilitiesHero} 
+                  alt="Energy & Utilities AI Transformation"
+                  className="w-full h-auto rounded-lg shadow-2xl"
+                />
               </div>
             </div>
           </div>

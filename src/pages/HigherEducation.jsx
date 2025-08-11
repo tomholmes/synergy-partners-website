@@ -25,9 +25,11 @@ import {
   Eye,
   Lock,
   FileText,
-  PieChart
+  PieChart,
+  Quote
 } from 'lucide-react'
 import { APP_CONFIG, ROUTES } from '../constants'
+import higherEducationHero from '../assets/industries/higher-education-hero.svg'
 
 function HigherEducation() {
   // Note: Form handling is managed by the EmailCapturePhp component
@@ -253,22 +255,28 @@ function HigherEducation() {
         {/* Hero Section */}
         <section className="py-20 lg:py-32 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-4xl mx-auto">
-              <Badge className="mb-6" variant="secondary">
-                <GraduationCap className="h-4 w-4 mr-2" />
-                Higher Education
-              </Badge>
-              <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6">
-                Accelerate Responsible AI in Higher Education
-              </h1>
-              <p className="text-xl lg:text-2xl text-muted-foreground mb-8 leading-relaxed">
-                SynergyIQ helps colleges and universities assess AI maturity, strengthen governance, and execute transformation roadmaps—so pilots become measurable, compliant, and scalable outcomes.
-              </p>
-              <div className="flex justify-center">
-                <Button size="lg" className="text-lg px-8" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-                  Book a Demo
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="text-center lg:text-left">
+                <Badge className="mb-4">Higher Education AI Platform</Badge>
+                <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6">
+                  Accelerate Responsible AI in <span className="text-primary">Higher Education</span>
+                </h1>
+                <p className="text-xl text-muted-foreground mb-8 max-w-4xl lg:max-w-none leading-relaxed">
+                  SynergyIQ helps higher education institutions baseline AI maturity, align with academic and compliance requirements, and execute roadmaps that turn pilots into safe, compliant, and measurable outcomes.
+                </p>
+                <div className="flex justify-center lg:justify-start">
+                  <Button size="lg" className="text-lg px-8" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                    Book a Demo
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </div>
+              </div>
+              <div className="relative order-first lg:order-last">
+                <img 
+                  src={higherEducationHero} 
+                  alt="Higher Education AI Transformation"
+                  className="w-full h-auto rounded-lg shadow-2xl"
+                />
               </div>
             </div>
           </div>

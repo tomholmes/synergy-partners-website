@@ -259,19 +259,28 @@ export default function Healthcare() {
         {/* Hero Section */}
         <section className="py-20 lg:py-32 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <Badge className="mb-4">Healthcare AI Platform</Badge>
-              <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6">
-                Accelerate Responsible AI in <span className="text-primary">Healthcare</span>
-              </h1>
-              <p className="text-xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
-                SynergyIQ helps provider and payer organizations baseline AI maturity, align with clinical and data governance requirements, and execute roadmaps that turn pilots into safe, compliant, and measurable outcomes.
-              </p>
-              <div className="flex justify-center">
-                <Button size="lg" className="text-lg px-8" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-                  Book a Demo
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="text-center lg:text-left">
+                <Badge className="mb-4">Healthcare AI Platform</Badge>
+                <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6">
+                  Accelerate Responsible AI in <span className="text-primary">Healthcare</span>
+                </h1>
+                <p className="text-xl text-muted-foreground mb-8 max-w-4xl lg:max-w-none leading-relaxed">
+                  SynergyIQ helps provider and payer organizations baseline AI maturity, align with clinical and data governance requirements, and execute roadmaps that turn pilots into safe, compliant, and measurable outcomes.
+                </p>
+                <div className="flex justify-center lg:justify-start">
+                  <Button size="lg" className="text-lg px-8" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                    Book a Demo
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </div>
+              </div>
+              <div className="relative order-first lg:order-last">
+                <img 
+                  src={healthcareHero} 
+                  alt="Healthcare AI Transformation"
+                  className="w-full h-auto rounded-lg shadow-2xl"
+                />
               </div>
             </div>
           </div>

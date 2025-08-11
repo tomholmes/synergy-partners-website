@@ -29,9 +29,11 @@ import {
   Wrench,
   Gauge,
   Truck,
-  Leaf
+  Leaf,
+  Quote
 } from 'lucide-react'
 import { APP_CONFIG, ROUTES } from '../constants'
+import manufacturingHero from '../assets/industries/manufacturing-hero.svg'
 
 function Manufacturing() {
   // Note: Form handling is managed by the EmailCapturePhp component
@@ -315,22 +317,28 @@ function Manufacturing() {
         {/* Hero Section */}
         <section className="py-20 lg:py-32 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-4xl mx-auto">
-              <Badge className="mb-6" variant="secondary">
-                <Factory className="h-4 w-4 mr-2" />
-                Manufacturing
-              </Badge>
-              <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6">
-                Accelerate Responsible AI in Manufacturing
-              </h1>
-              <p className="text-xl lg:text-2xl text-muted-foreground mb-8 leading-relaxed">
-                SynergyIQ helps Durable Goods and CPG manufacturers baseline AI readiness, strengthen governance and compliance, and execute plant‑to‑enterprise roadmaps—turning pilots into scalable, measurable outcomes.
-              </p>
-              <div className="flex justify-center">
-                <Button size="lg" className="text-lg px-8" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-                  Book a Demo
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="text-center lg:text-left">
+                <Badge className="mb-4">Manufacturing AI Platform</Badge>
+                <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6">
+                  Accelerate Responsible AI in <span className="text-primary">Manufacturing</span>
+                </h1>
+                <p className="text-xl text-muted-foreground mb-8 max-w-4xl lg:max-w-none leading-relaxed">
+                  SynergyIQ helps manufacturing organizations baseline AI maturity, align with safety and quality requirements, and execute roadmaps that turn pilots into safe, compliant, and measurable outcomes.
+                </p>
+                <div className="flex justify-center lg:justify-start">
+                  <Button size="lg" className="text-lg px-8" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                    Book a Demo
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </div>
+              </div>
+              <div className="relative order-first lg:order-last">
+                <img 
+                  src={manufacturingHero} 
+                  alt="Manufacturing AI Transformation"
+                  className="w-full h-auto rounded-lg shadow-2xl"
+                />
               </div>
             </div>
           </div>

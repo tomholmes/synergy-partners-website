@@ -23,6 +23,7 @@ import {
 import EmailCapturePhp from '../components/EmailCapturePhp'
 import SEO from '../components/SEO'
 import Header from '../components/Header'
+import publicSectorHero from '../assets/industries/public-sector-hero.svg'
 
 export default function PublicSector() {
   // Problem → Outcome data
@@ -235,19 +236,28 @@ export default function PublicSector() {
         {/* Hero Section */}
         <section className="py-20 lg:py-32 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <Badge className="mb-4">Public Sector AI Platform</Badge>
-              <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6">
-                Accelerate Responsible AI in the <span className="text-primary">Public Sector</span>
-              </h1>
-              <p className="text-xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
-                SynergyIQ helps government agencies baseline AI readiness, align with federal guidance, and execute roadmaps that deliver transparent, compliant, and measurable results for constituents.
-              </p>
-              <div className="flex justify-center">
-                <Button size="lg" className="text-lg px-8" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-                  Book a Demo
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="text-center lg:text-left">
+                <Badge className="mb-4">Public Sector AI Platform</Badge>
+                <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6">
+                  Accelerate Responsible AI in the <span className="text-primary">Public Sector</span>
+                </h1>
+                <p className="text-xl text-muted-foreground mb-8 max-w-4xl lg:max-w-none leading-relaxed">
+                  SynergyIQ helps government agencies baseline AI maturity, align with regulatory and compliance requirements, and execute roadmaps that turn pilots into safe, compliant, and measurable outcomes.
+                </p>
+                <div className="flex justify-center lg:justify-start">
+                  <Button size="lg" className="text-lg px-8" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                    Book a Demo
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </div>
+              </div>
+              <div className="relative order-first lg:order-last">
+                <img 
+                  src={publicSectorHero} 
+                  alt="Public Sector AI Transformation"
+                  className="w-full h-auto rounded-lg shadow-2xl"
+                />
               </div>
             </div>
           </div>
