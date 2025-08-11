@@ -28,11 +28,16 @@ function Header() {
             <a href={isMainPage ? "#platform" : "/#platform"} className="text-foreground hover:text-primary transition-colors">Platform</a>
             
             {/* Solutions Dropdown */}
-            <div className="relative">
+            <div 
+              className="relative"
+              onMouseEnter={() => setIsSolutionsOpen(true)}
+              onMouseLeave={() => {
+                // Add a small delay to prevent premature closing
+                setTimeout(() => setIsSolutionsOpen(false), 150)
+              }}
+            >
               <button
                 onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
-                onMouseEnter={() => setIsSolutionsOpen(true)}
-                onMouseLeave={() => setIsSolutionsOpen(false)}
                 className="text-foreground hover:text-primary transition-colors flex items-center space-x-1"
               >
                 <span>Solutions</span>
@@ -41,9 +46,7 @@ function Header() {
               
               {isSolutionsOpen && (
                 <div 
-                  className="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50"
-                  onMouseEnter={() => setIsSolutionsOpen(true)}
-                  onMouseLeave={() => setIsSolutionsOpen(false)}
+                  className="absolute top-full left-0 mt-0 w-64 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50"
                 >
                   <Link 
                     to={ROUTES.HIGHER_EDUCATION} 
