@@ -324,7 +324,7 @@ function App() {
                 >
                   <motion.span 
                     variants={textRevealVariants}
-                    className="inline-block mr-2 text-black dark:text-white font-bold text-lg"
+                    style={{ color: 'red', fontWeight: 'bold', fontSize: '1.5rem', display: 'inline-block', marginRight: '0.5rem' }}
                   >
                     From{' '}
                   </motion.span>
@@ -336,7 +336,7 @@ function App() {
                   </motion.span>
                   <motion.span 
                     variants={textRevealVariants}
-                    className="inline-block mr-2 text-black dark:text-white font-bold text-lg"
+                    style={{ color: 'red', fontWeight: 'bold', fontSize: '1.5rem', display: 'inline-block', marginRight: '0.5rem' }}
                   >
                     to{' '}
                   </motion.span>
