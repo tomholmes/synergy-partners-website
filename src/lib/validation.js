@@ -5,7 +5,7 @@ export const VALIDATION_RULES = {
     message: 'Please enter a valid email address'
   },
   phone: {
-    pattern: /^\+?[\d\s\-\(\)]+$/,
+    pattern: /^\+?[\d\s\-()]+$/,
     message: 'Please enter a valid phone number'
   },
   required: {

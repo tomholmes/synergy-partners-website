@@ -29,6 +29,18 @@ export const ROUTES = {
   RETAIL_ECOMMERCE: '/industries/retail-ecommerce'
 }
 
+// Industry route mapping for use case navigation
+export const INDUSTRY_ROUTES = {
+  'Government': ROUTES.PUBLIC_SECTOR,
+  'Enterprise': ROUTES.ENTERPRISE,
+  'Manufacturing': ROUTES.MANUFACTURING,
+  'Healthcare': ROUTES.HEALTHCARE,
+  'Financial': ROUTES.FINANCIAL_SERVICES,
+  'Education': ROUTES.HIGHER_EDUCATION,
+  'Energy': ROUTES.ENERGY_UTILITIES,
+  'Retail': ROUTES.RETAIL_ECOMMERCE
+}
+
 // Module information
 export const MODULES = {
   INSIGHT_IQ: 'InsightIQ',
@@ -40,7 +52,7 @@ export const MODULES = {
 // Validation patterns
 export const VALIDATION = {
   EMAIL_REGEX: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-  PHONE_REGEX: /^\+?[\d\s\-\(\)]+$/
+  PHONE_REGEX: /^\+?[\d\s\-()]+$/
 }
 
 // Default values

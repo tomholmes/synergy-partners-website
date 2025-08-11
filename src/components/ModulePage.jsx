@@ -5,7 +5,7 @@ import { ArrowLeft, ArrowRight, CheckCircle } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import aiGovernanceIcon from '../assets/ai_governance_icon.png'
-import { APP_CONFIG, ROUTES, MODULES } from '../constants'
+import { APP_CONFIG, ROUTES, MODULES, INDUSTRY_ROUTES } from '../constants'
 import SEO from './SEO'
 import EmailCapturePhp from './EmailCapturePhp'
 
@@ -190,21 +190,30 @@ function ModulePage({
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {useCases.map((useCase, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
-                <CardHeader>
-                  <CardTitle className="text-lg">{useCase.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base">
-                    {useCase.description}
-                  </CardDescription>
-                  <div className="mt-4">
-                    <Badge variant="outline">{useCase.industry}</Badge>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+            {useCases.map((useCase, index) => {
+              const industryRoute = INDUSTRY_ROUTES[useCase.industry];
+              return (
+                <Link 
+                  key={index} 
+                  to={industryRoute} 
+                  className="block hover:shadow-lg transition-shadow duration-300"
+                >
+                  <Card className="h-full cursor-pointer hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
+                    <CardHeader>
+                      <CardTitle className="text-lg">{useCase.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-base">
+                        {useCase.description}
+                      </CardDescription>
+                      <div className="mt-4">
+                        <Badge variant="outline">{useCase.industry}</Badge>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
