@@ -83,29 +83,27 @@ const DashboardCarousel = () => {
     <div className="relative w-full h-full group">
       {/* Main Carousel */}
       <div className="relative overflow-hidden rounded-2xl shadow-strong">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentIndex}
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="relative"
-          >
-            <img
+        <div className="relative">
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={currentIndex}
               src={dashboards[currentIndex].image}
               alt={dashboards[currentIndex].alt}
-              className="w-full h-auto rounded-2xl"
+              className="w-full h-auto rounded-2xl absolute inset-0"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
             />
-            
-            {/* Overlay with title */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent p-6 rounded-b-2xl">
-              <h3 className="text-white text-lg font-semibold">
-                {dashboards[currentIndex].title}
-              </h3>
-            </div>
-          </motion.div>
-        </AnimatePresence>
+          </AnimatePresence>
+          
+          {/* Overlay with title */}
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent p-6 rounded-b-2xl z-10">
+            <h3 className="text-white text-lg font-semibold">
+              {dashboards[currentIndex].title}
+            </h3>
+          </div>
+        </div>
 
         {/* Navigation Arrows */}
         <Button
@@ -127,7 +125,7 @@ const DashboardCarousel = () => {
         </Button>
 
         {/* Progress Bar */}
-        <div className="absolute top-4 left-4 right-4">
+        <div className="absolute top-4 left-4 right-4 z-20">
           <div className="w-full bg-white/20 rounded-full h-1 backdrop-blur-sm">
             <motion.div
               className="bg-white h-1 rounded-full"
