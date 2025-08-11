@@ -164,10 +164,10 @@ const Header = () => {
         },
         {
           name: 'Assessment Tool',
-          description: 'Free AI maturity assessment',
+          description: 'Learn more about AIMM-360™',
           href: '#',
           icon: <Target className="h-5 w-5" />,
-          badge: 'Free'
+          badge: 'Learn'
         },
         {
           name: 'Documentation',
