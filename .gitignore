@@ -7,6 +7,11 @@ node_modules
 config.env
 public/config.env
 public/sendgrid-config.php
+deploy.env
+
+# Build artifacts
+dist/
+build/
 
 # Log files
 *.log
@@ -17,3 +22,17 @@ public/rate-limit.json
 public/blocked-ips.json
 public/security.log
 public/leads.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.temp

@@ -75,60 +75,47 @@ function EmailCapturePhp({ source = "homepage" }) {
     }
 
     // Validate CAPTCHA
-    console.log('CAPTCHA validation:', {
-      userAnswer: formData.captchaAnswer,
-      correctAnswer: captcha.answer,
-      question: captcha.question
-    })
-    
-    if (!formData.captchaAnswer || formData.captchaAnswer !== captcha.answer) {
-      setStatus('error')
-      setMessage('Please answer the security question correctly')
+    if (!captchaToken) {
+      setError('Please complete the CAPTCHA verification')
       return
     }
 
-    try {
-      const requestBody = {
-        ...formData,
-        captcha: captcha.question,
-        captchaAnswer: formData.captchaAnswer,
-        source,
-        timestamp: new Date().toISOString()
-      }
-      
-      console.log('Submitting form data:', requestBody)
-      
-      const response = await fetch('/submit-lead.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(requestBody)
+    // Submit form data
+    const requestBody = {
+      email: formData.email,
+      name: formData.name,
+      company: formData.company,
+      message: formData.message,
+      source: source,
+      captchaToken: captchaToken
+    }
+
+    const response = await fetch('/api/submit-lead.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestBody)
+    })
+
+    const result = await response.json()
+
+    if (response.ok && result.success) {
+      setStatus('success')
+      setMessage('Thank you! We\'ve received your demo request and will contact you within 24 hours to schedule your personalized AI governance demo.')
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        title: '',
+        organization: '',
+        website: '',
+        phone: '',
+        captcha: '',
+        captchaAnswer: ''
       })
-
-      const result = await response.json()
-
-      if (response.ok && result.success) {
-        setStatus('success')
-        setMessage('Thank you! We\'ve received your demo request and will contact you within 24 hours to schedule your personalized AI governance demo.')
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          title: '',
-          organization: '',
-          website: '',
-          phone: '',
-          captcha: '',
-          captchaAnswer: ''
-        })
-      } else {
-        throw new Error(result.error || 'Failed to submit')
-      }
-    } catch (error) {
-      console.error('Error submitting lead:', error)
-      setStatus('error')
-      setMessage('Unable to submit your demo request. Please try again or contact us directly at tholmes@synergypartners.ai to schedule your demo.')
+    } else {
+      throw new Error(result.error || 'Failed to submit')
     }
   }
 
