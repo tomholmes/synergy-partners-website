@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 import EmailCapturePhp from './components/EmailCapturePhp'
 import SEO from './components/SEO'
 import DashboardCarousel from './components/DashboardCarousel'
+import Header from './components/Header'
 import { motion } from 'framer-motion'
 import { 
   ArrowRight, 
@@ -18,18 +19,15 @@ import {
   Award, 
   Globe,
   TrendingUp,
-  Menu,
-  X,
   Building2,
   Sparkles,
   Star,
   Zap as Lightning,
   ShoppingBag
 } from 'lucide-react'
-import { useState } from 'react'
 
 
-import aiGovernanceIcon from './assets/ai_governance_icon.png'
+
 import { APP_CONFIG, ROUTES, MODULES } from './constants'
 import { 
   heroVariants, 
@@ -41,7 +39,6 @@ import {
   buttonVariants,
   badgeVariants,
   scrollVariants,
-  navVariants,
   // Enhanced animations
   heroEnhancedVariants,
   heroTextEnhancedVariants,
@@ -52,9 +49,7 @@ import {
   buttonEnhancedVariants,
   badgeEnhancedVariants,
   scrollEnhancedVariants,
-  navEnhancedVariants,
   parallaxVariants,
-  morphVariants,
   particleVariants,
   textRevealVariants,
   staggerTextReveal,
@@ -69,7 +64,6 @@ import {
 } from './lib/animations'
 
 function App() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const modules = [
     {
@@ -141,137 +135,8 @@ function App() {
         type="website"
       />
       <div className="min-h-screen bg-background">
-        {/* Enhanced Navigation */}
-        <motion.nav 
-          className="nav-modern-enhanced border-b sticky top-0 z-50"
-          variants={navEnhancedVariants}
-          initial="initial"
-          animate="animate"
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-16">
-              <div className="flex items-center">
-                <motion.div
-                  variants={morphVariants}
-                  initial="initial"
-                  animate="animate"
-                  className="relative"
-                >
-                  <motion.img 
-                    src={aiGovernanceIcon} 
-                    alt={APP_CONFIG.NAME} 
-                    className="h-8 w-8 mr-3"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                  <motion.div
-                    className="absolute -top-1 -right-1 w-3 h-3 bg-primary rounded-full"
-                    variants={pulseEnhancedVariants}
-                    initial="initial"
-                    animate="animate"
-                  />
-                </motion.div>
-                <motion.span 
-                  className="text-xl font-bold text-gradient-enhanced"
-                  variants={textRevealVariants}
-                  initial="initial"
-                  animate="animate"
-                >
-                  {APP_CONFIG.NAME}
-                </motion.span>
-              </div>
-              
-              {/* Desktop Navigation */}
-              <div className="hidden md:flex items-center space-x-8">
-                {['Home', 'Platform', 'Solutions', 'Resources', 'About', 'Contact'].map((item, index) => (
-                  <motion.a 
-                    key={item}
-                    href={`#${item.toLowerCase()}`} 
-                    className="text-foreground hover:text-primary transition-colors relative group"
-                    variants={textRevealVariants}
-                    initial="initial"
-                    animate="animate"
-                    transition={{ delay: index * 0.1 }}
-                    whileHover={{ y: -2 }}
-                  >
-                    {item}
-                    <motion.div
-                      className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"
-                      initial={{ width: 0 }}
-                      whileHover={{ width: "100%" }}
-                    />
-                  </motion.a>
-                ))}
-              </div>
-
-              <div className="hidden md:flex items-center space-x-4">
-                <motion.div
-                  variants={buttonEnhancedVariants}
-                  whileHover="hover"
-                  whileTap="tap"
-                >
-                  <Button 
-                    className="btn-modern-enhanced"
-                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  >
-                    <Sparkles className="mr-2 h-4 w-4" />
-                    Book Demo
-                  </Button>
-                </motion.div>
-              </div>
-
-              {/* Mobile menu button */}
-              <div className="md:hidden">
-                <motion.div
-                  variants={buttonEnhancedVariants}
-                  whileHover="hover"
-                  whileTap="tap"
-                >
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    className="btn-modern-enhanced"
-                  >
-                    {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-                  </Button>
-                </motion.div>
-              </div>
-            </div>
-
-            {/* Mobile Navigation */}
-            {isMenuOpen && (
-              <motion.div 
-                className="md:hidden"
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 glass-ultra border-t">
-                  {['Home', 'Platform', 'Solutions', 'Resources', 'About', 'Contact'].map((item, index) => (
-                    <motion.a 
-                      key={item}
-                      href={`#${item.toLowerCase()}`} 
-                      className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                    >
-                      {item}
-                    </motion.a>
-                  ))}
-                  <div className="px-3 py-2 space-y-2">
-                    <Button className="w-full btn-modern-enhanced" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-                      <Sparkles className="mr-2 h-4 w-4" />
-                      Book Demo
-                    </Button>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </div>
-        </motion.nav>
+        {/* Header with Advanced Navigation */}
+        <Header />
 
         {/* Enhanced Hero Section */}
         <motion.section 

@@ -4,7 +4,7 @@ import { Badge } from './ui/badge'
 import { ArrowLeft, ArrowRight, CheckCircle } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import aiGovernanceIcon from '../assets/ai_governance_icon.png'
+import Header from './Header'
 import { APP_CONFIG, ROUTES, MODULES, INDUSTRY_ROUTES } from '../constants'
 import SEO from './SEO'
 import EmailCapturePhp from './EmailCapturePhp'
@@ -27,46 +27,8 @@ function ModulePage({
         type="website"
       />
       <div className="min-h-screen bg-background">
-        {/* Navigation */}
-      <nav className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link to={ROUTES.HOME} className="flex items-center">
-              <img src={aiGovernanceIcon} alt={APP_CONFIG.NAME} className="h-8 w-8 mr-3" />
-              <span className="text-xl font-bold text-foreground">{APP_CONFIG.NAME}</span>
-            </Link>
-            
-            <div className="flex items-center space-x-8">
-              <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">Home</Link>
-              <a 
-                href="/#platform" 
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Platform
-              </a>
-              <a 
-                href="/#solutions" 
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Solutions
-              </a>
-              <a 
-                href="/#contact" 
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Contact
-              </a>
-              <Button 
-                variant="outline" 
-                size="sm"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Book Demo
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav>
+        {/* Header with Advanced Navigation */}
+        <Header />
 
       {/* Back Navigation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
