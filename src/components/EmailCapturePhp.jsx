@@ -92,7 +92,8 @@ function EmailCapturePhp({ source = "homepage" }) {
         source: source,
         timestamp: new Date().toISOString(),
         userAgent: navigator.userAgent,
-        referrer: document.referrer
+        referrer: document.referrer,
+        captchaAnswer: formData.captchaAnswer
       }
 
       console.log('Submitting form with data:', requestBody)
