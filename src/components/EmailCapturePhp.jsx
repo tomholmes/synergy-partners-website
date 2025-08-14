@@ -75,22 +75,26 @@ function EmailCapturePhp({ source = "homepage" }) {
     }
 
     // Validate CAPTCHA
-    if (!captchaToken) {
-      setError('Please complete the CAPTCHA verification')
+    if (formData.captchaAnswer !== captcha.answer) {
+      setStatus('error')
+      setMessage('Please complete the CAPTCHA verification correctly')
       return
     }
 
     // Submit form data
     const requestBody = {
+      firstName: formData.firstName,
+      lastName: formData.lastName,
       email: formData.email,
-      name: formData.name,
-      company: formData.company,
-      message: formData.message,
+      title: formData.title,
+      organization: formData.organization,
       source: source,
-      captchaToken: captchaToken
+      timestamp: new Date().toISOString(),
+      userAgent: navigator.userAgent,
+      referrer: document.referrer
     }
 
-    const response = await fetch('/api/submit-lead.php', {
+    const response = await fetch('/api/submit-lead', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -115,8 +119,12 @@ function EmailCapturePhp({ source = "homepage" }) {
         captchaAnswer: ''
       })
     } else {
-      throw new Error(result.error || 'Failed to submit')
+      throw new Error(result.error || result.message || 'Failed to submit')
     }
+  } catch (error) {
+    console.error('Form submission error:', error)
+    setStatus('error')
+    setMessage(`Submission failed: ${error.message}. Please try again or contact us directly.`)
   }
 
   return (
