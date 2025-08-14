@@ -49,82 +49,84 @@ function EmailCapturePhp({ source = "homepage" }) {
     setStatus('loading')
     setMessage('')
 
-    // Validation
-    if (!formData.firstName.trim()) {
-      setStatus('error')
-      setMessage('Please enter your first name to schedule your demo')
-      return
-    }
-    
-    if (!formData.lastName.trim()) {
-      setStatus('error')
-      setMessage('Please enter your last name to schedule your demo')
-      return
-    }
-    
-    if (!formData.email || !formData.email.includes('@')) {
-      setStatus('error')
-      setMessage('Please enter a valid email address to receive demo confirmation')
-      return
-    }
-    
-    if (!formData.organization.trim()) {
-      setStatus('error')
-      setMessage('Please enter your organization to personalize your demo')
-      return
-    }
+    try {
+      // Validation
+      if (!formData.firstName.trim()) {
+        setStatus('error')
+        setMessage('Please enter your first name to schedule your demo')
+        return
+      }
+      
+      if (!formData.lastName.trim()) {
+        setStatus('error')
+        setMessage('Please enter your last name to schedule your demo')
+        return
+      }
+      
+      if (!formData.email || !formData.email.includes('@')) {
+        setStatus('error')
+        setMessage('Please enter a valid email address to receive demo confirmation')
+        return
+      }
+      
+      if (!formData.organization.trim()) {
+        setStatus('error')
+        setMessage('Please enter your organization to personalize your demo')
+        return
+      }
 
-    // Validate CAPTCHA
-    if (formData.captchaAnswer !== captcha.answer) {
-      setStatus('error')
-      setMessage('Please complete the CAPTCHA verification correctly')
-      return
-    }
+      // Validate CAPTCHA
+      if (formData.captchaAnswer !== captcha.answer) {
+        setStatus('error')
+        setMessage('Please complete the CAPTCHA verification correctly')
+        return
+      }
 
-    // Submit form data
-    const requestBody = {
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      email: formData.email,
-      title: formData.title,
-      organization: formData.organization,
-      source: source,
-      timestamp: new Date().toISOString(),
-      userAgent: navigator.userAgent,
-      referrer: document.referrer
-    }
+      // Submit form data
+      const requestBody = {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        title: formData.title,
+        organization: formData.organization,
+        source: source,
+        timestamp: new Date().toISOString(),
+        userAgent: navigator.userAgent,
+        referrer: document.referrer
+      }
 
-    const response = await fetch('/api/submit-lead', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(requestBody)
-    })
-
-    const result = await response.json()
-
-    if (response.ok && result.success) {
-      setStatus('success')
-      setMessage('Thank you! We\'ve received your demo request and will contact you within 24 hours to schedule your personalized AI governance demo.')
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        title: '',
-        organization: '',
-        website: '',
-        phone: '',
-        captcha: '',
-        captchaAnswer: ''
+      const response = await fetch('/api/submit-lead', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestBody)
       })
-    } else {
-      throw new Error(result.error || result.message || 'Failed to submit')
+
+      const result = await response.json()
+
+      if (response.ok && result.success) {
+        setStatus('success')
+        setMessage('Thank you! We\'ve received your demo request and will contact you within 24 hours to schedule your personalized AI governance demo.')
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          title: '',
+          organization: '',
+          website: '',
+          phone: '',
+          captcha: '',
+          captchaAnswer: ''
+        })
+      } else {
+        throw new Error(result.error || result.message || 'Failed to submit')
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      setStatus('error')
+      setMessage(`Submission failed: ${error.message}. Please try again or contact us directly.`)
     }
-  } catch (error) {
-    console.error('Form submission error:', error)
-    setStatus('error')
-    setMessage(`Submission failed: ${error.message}. Please try again or contact us directly.`)
   }
 
   return (
