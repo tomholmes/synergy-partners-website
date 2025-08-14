@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select'
 import { ArrowRight, CheckCircle, AlertCircle } from 'lucide-react'
 import { APP_CONFIG } from '../constants'
 
@@ -11,6 +12,7 @@ function EmailCapturePhp({ source = "homepage" }) {
     email: '',
     title: '',
     organization: '',
+    industry: '',
     // Honeypot fields (hidden from users, bots often fill these)
     website: '',
     phone: '',
@@ -18,6 +20,19 @@ function EmailCapturePhp({ source = "homepage" }) {
     captcha: '',
     captchaAnswer: ''
   })
+
+  // Industry options for the dropdown
+  const industryOptions = [
+    { value: 'higher-education', label: 'Higher Education' },
+    { value: 'manufacturing', label: 'Manufacturing' },
+    { value: 'enterprise', label: 'Enterprise' },
+    { value: 'financial-services', label: 'Financial Services' },
+    { value: 'healthcare', label: 'Healthcare' },
+    { value: 'public-sector', label: 'Public Sector' },
+    { value: 'energy-utilities', label: 'Energy & Utilities' },
+    { value: 'retail-ecommerce', label: 'Retail & E-commerce' },
+    { value: 'other', label: 'Other' }
+  ]
 
   const [status, setStatus] = useState('idle')
   const [message, setMessage] = useState('')
@@ -69,11 +84,17 @@ function EmailCapturePhp({ source = "homepage" }) {
         return
       }
       
-      if (!formData.organization.trim()) {
-        setStatus('error')
-        setMessage('Please enter your organization to personalize your demo')
-        return
-      }
+          if (!formData.organization.trim()) {
+      setStatus('error')
+      setMessage('Please enter your organization to personalize your demo')
+      return
+    }
+
+    if (!formData.industry) {
+      setStatus('error')
+      setMessage('Please select your industry to personalize your demo')
+      return
+    }
 
       // Validate CAPTCHA
       if (formData.captchaAnswer !== captcha.answer) {
@@ -89,6 +110,7 @@ function EmailCapturePhp({ source = "homepage" }) {
         email: formData.email,
         title: formData.title,
         organization: formData.organization,
+        industry: formData.industry,
         source: source,
         timestamp: new Date().toISOString(),
         userAgent: navigator.userAgent,
@@ -127,6 +149,7 @@ function EmailCapturePhp({ source = "homepage" }) {
           email: '',
           title: '',
           organization: '',
+          industry: '',
           website: '',
           phone: '',
           captcha: '',
@@ -202,6 +225,29 @@ function EmailCapturePhp({ source = "homepage" }) {
         onChange={handleInputChange}
         required
       />
+      
+      <div>
+        <label htmlFor="industry" className="block text-sm font-medium text-gray-700 mb-2">
+          Industry *
+        </label>
+        <Select
+          name="industry"
+          value={formData.industry}
+          onValueChange={(value) => setFormData(prev => ({ ...prev, industry: value }))}
+          required
+        >
+          <SelectTrigger className="w-full">
+            <SelectValue placeholder="Select your industry" />
+          </SelectTrigger>
+          <SelectContent>
+            {industryOptions.map((option) => (
+              <SelectItem key={option.value} value={option.value}>
+                {option.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
 
       {/* Honeypot fields - hidden from users */}
       <div className="hidden">

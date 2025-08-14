@@ -181,6 +181,7 @@ $lastName = htmlspecialchars(trim($input['lastName']));
 $email = htmlspecialchars(trim($input['email']));
 $title = htmlspecialchars(trim($input['title'] ?? 'Not provided'));
 $organization = htmlspecialchars(trim($input['organization']));
+$industry = htmlspecialchars(trim($input['industry'] ?? 'Not specified'));
 $source = htmlspecialchars(trim($input['source'] ?? 'website'));
 $timestamp = htmlspecialchars(trim($input['timestamp'] ?? date('c')));
 
@@ -197,6 +198,7 @@ Contact Information:
 - Email: $email
 - Title: $title
 - Organization: $organization
+- Industry: $industry
 
 Lead Details:
 - Source: $source
