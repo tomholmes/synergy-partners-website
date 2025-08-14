@@ -95,15 +95,27 @@ function EmailCapturePhp({ source = "homepage" }) {
         referrer: document.referrer
       }
 
+      console.log('Submitting form with data:', requestBody)
+      
+      const controller = new AbortController()
+      const timeoutId = setTimeout(() => controller.abort(), 10000) // 10 second timeout
+      
       const response = await fetch('/api/submit-lead', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(requestBody)
+        body: JSON.stringify(requestBody),
+        signal: controller.signal
       })
+      
+      clearTimeout(timeoutId)
 
+      console.log('Response status:', response.status)
+      console.log('Response headers:', response.headers)
+      
       const result = await response.json()
+      console.log('Response result:', result)
 
       if (response.ok && result.success) {
         setStatus('success')
@@ -124,8 +136,17 @@ function EmailCapturePhp({ source = "homepage" }) {
       }
     } catch (error) {
       console.error('Form submission error:', error)
-      setStatus('error')
-      setMessage(`Submission failed: ${error.message}. Please try again or contact us directly.`)
+      
+      if (error.name === 'AbortError') {
+        setStatus('error')
+        setMessage('Request timed out. Please check your connection and try again.')
+      } else if (error.name === 'TypeError' && error.message.includes('fetch')) {
+        setStatus('error')
+        setMessage('Network error. Please check your connection and try again.')
+      } else {
+        setStatus('error')
+        setMessage(`Submission failed: ${error.message}. Please try again or contact us directly.`)
+      }
     }
   }
 

@@ -82,38 +82,34 @@ SynergyPartners.AI Lead Capture System
     
     // Option 1: Use a webhook service like Zapier
     const webhookUrl = process.env.ZAPIER_WEBHOOK_URL
-    if (!webhookUrl) {
-      console.warn('ZAPIER_WEBHOOK_URL not configured')
-      return {
-        statusCode: 500,
-        headers,
-        body: JSON.stringify({ error: 'Webhook not configured' })
-      }
-    }
-    
-    try {
-      const response = await fetch(webhookUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          to: 'tholmes@synergypartners.ai',
-          subject: `New Lead: ${firstName} ${lastName} from ${organization}`,
-          firstName: firstName,
-          lastName: lastName,
-          email: email,
-          title: title,
-          organization: organization,
-          source: source,
-          timestamp: timestamp,
-          userAgent: userAgent,
-          referrer: referrer,
-          message: emailContent
+    if (webhookUrl) {
+      try {
+        const response = await fetch(webhookUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            to: 'tholmes@synergypartners.ai',
+            subject: `New Lead: ${firstName} ${lastName} from ${organization}`,
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            title: title,
+            organization: organization,
+            source: source,
+            timestamp: timestamp,
+            userAgent: userAgent,
+            referrer: referrer,
+            message: emailContent
+          })
         })
-      })
-    } catch (webhookError) {
-      console.log('Webhook failed, but continuing...', webhookError)
+        console.log('Webhook sent successfully')
+      } catch (webhookError) {
+        console.log('Webhook failed, but continuing...', webhookError)
+      }
+    } else {
+      console.warn('ZAPIER_WEBHOOK_URL not configured - skipping webhook')
     }
 
     // Log the lead for tracking
