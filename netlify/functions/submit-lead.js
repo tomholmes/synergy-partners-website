@@ -26,6 +26,20 @@ exports.handler = async (event, context) => {
   }
 
   try {
+    console.log('Received request body:', event.body)
+    
+    let parsedData
+    try {
+      parsedData = JSON.parse(event.body)
+    } catch (parseError) {
+      console.error('JSON parse error:', parseError)
+      return {
+        statusCode: 400,
+        headers,
+        body: JSON.stringify({ error: 'Invalid JSON format' })
+      }
+    }
+    
     const { 
       firstName, 
       lastName, 
@@ -36,9 +50,13 @@ exports.handler = async (event, context) => {
       timestamp, 
       userAgent, 
       referrer 
-    } = JSON.parse(event.body)
+    } = parsedData
+    
+    console.log('Parsed data:', { firstName, lastName, email, title, organization, source, timestamp, userAgent, referrer })
 
+    console.log('Validating email:', email)
     if (!email || !email.includes('@')) {
+      console.log('Email validation failed')
       return {
         statusCode: 400,
         headers,
@@ -46,7 +64,9 @@ exports.handler = async (event, context) => {
       }
     }
 
+    console.log('Validating required fields:', { firstName, lastName, organization })
     if (!firstName || !lastName || !organization) {
+      console.log('Required fields validation failed')
       return {
         statusCode: 400,
         headers,
